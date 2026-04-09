@@ -13,3 +13,7 @@ Problem:
 1) We'll see that memory will rapidly starts getting full as the messages will start getting stored in one place(server).
 2) CPU will getting overloaded due to continuous message incoming
 3) System will get slow, as it is containing only 1 server which is getting loaded with tons of messages
+
+(what data grows fastest): The fastest growing data in this system will be "Messages and Active Users"
+
+Conclusion: A single server cannot handle this huge data on same time, it will get very difficult for that, and the server might get down also.
