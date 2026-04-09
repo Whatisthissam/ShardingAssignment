@@ -1,4 +1,4 @@
-Day 1–2: System Thinking
+**Day 1–2: System Thinking**
 
 Situation:
 A sudden event:
