@@ -16,4 +16,12 @@ Problem:
 
 (what data grows fastest): The fastest growing data in this system will be "Messages and Active Users"
 
-Conclusion: A single server cannot handle this huge data on same time, it will get very difficult for that, and the server might get down also.
+At small scale like 10 users, everything will works smoothly.
+But when users increase to thousands:
+
+1) System will becomes slow
+2) Data handling will becomes very much difficult
+
+Conclusion: A single server cannot handle this huge data on same time, it will get very difficult for that, and the server might get down also. We need multiple servers (sharding).
+
+ 
