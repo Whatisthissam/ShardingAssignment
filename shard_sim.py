@@ -66,3 +66,27 @@ for _ in range(5000):
 print("\nShard Distribution:")
 manager.print_stats()
 
+
+# Day 6: User-Based Sharding
+
+class UserShardManager(ShardManager):
+
+    def get_shard(self, user_id):
+        return self.shards[user_id % len(self.shards)]
+
+    def send_message(self, message):
+        shard = self.get_shard(message.user_id)
+        shard.store(message)
+
+
+user_manager = UserShardManager(3)
+
+for _ in range(2000):
+    user_manager.send_message(Message(2, 1, "hello"))
+
+for _ in range(5000):
+    user_manager.send_message(Message(99, 1, "spam"))
+
+print("\nUser-Based Sharding:")
+user_manager.print_stats()
+
