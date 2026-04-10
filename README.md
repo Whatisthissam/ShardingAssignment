@@ -35,5 +35,18 @@ we'll face problem like:
 1) No load distribution
 2) Risk of system crash
 
+---
+
+Day 5: Introducing Shards
+
+Multiple servers basically (shards) are introduced, Messages which are coming basically the load is getting distributed randomly into the shards and not any server is getting as such any load.
+
+We Observation that:
+
+1) Load is now splitted
+2) But there is still no proper logic exists
+
+Conclusion: We still need a better routing strategy
+
 
  
