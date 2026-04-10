@@ -1,3 +1,6 @@
+#importing libraries
+import random
+
 # Day 3-4: Starter Code
 
 class Message:
@@ -29,3 +32,37 @@ for _ in range(10000):
     server.send_message(Message(1, 1, "hello"))
 
 server.stats()
+
+
+# Day 5: Introducing Shards
+
+class Shard:
+    def __init__(self, shard_id):
+        self.id = shard_id
+        self.messages = []
+
+    def store(self, message):
+        self.messages.append(message)
+
+
+class ShardManager:
+    def __init__(self, num_shards):
+        self.shards = [Shard(i) for i in range(num_shards)]
+
+    def send_message(self, message):
+        shard = random.choice(self.shards)
+        shard.store(message)
+
+    def print_stats(self):
+        for shard in self.shards:
+            print(f"Shard {shard.id}: {len(shard.messages)} messages")
+
+
+manager = ShardManager(3)
+
+for _ in range(5000):
+    manager.send_message(Message(1, 1, "hello"))
+
+print("\nShard Distribution:")
+manager.print_stats()
+
