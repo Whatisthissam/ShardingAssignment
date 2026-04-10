@@ -24,4 +24,16 @@ But when users increase to thousands:
 
 Conclusion: A single server cannot handle this huge data on same time, it will get very difficult for that, and the server might get down also. We need multiple servers (sharding).
 
+---
+
+Day 3–4: Building a Single Server System
+
+We see that system will works fine with a small number of users, but when the number of messages increases, memory keeps growing without limit.
+
+we'll face problem like:
+
+1) No load distribution
+2) Risk of system crash
+
+
  
