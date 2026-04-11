@@ -49,4 +49,10 @@ We Observation that:
 Conclusion: We still need a better routing strategy
 
 
- 
+---
+
+Day 6: User-Based Sharding
+
+As you can see the messages are routed based on user ID, but one active user overloaded a shard
+
+Conclusion: This strategy will get failed when a user generates heavy traffic.
