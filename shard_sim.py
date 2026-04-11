@@ -136,3 +136,34 @@ for _ in range(7000):
 
 print("\nHash-Based Sharding:")
 hash_manager.print_stats()
+
+
+# Day 9: Stress + Failure Simulation
+
+def fetch_last_messages(manager, channel_id):
+    results = []
+    checked = 0
+
+    for shard in manager.shards:
+        checked += 1
+        for msg in shard.messages:
+            if msg.channel_id == channel_id:
+                results.append(msg)
+
+    print(f"\nChecked {checked} shards")
+    print(f"Last messages found: {len(results[-10:])}")
+
+
+print("\n--- Stress Test ---")
+simulate_manager = HashShardManager(3)
+
+for _ in range(10000):
+    simulate_manager.send_message(Message(1, random.randint(1, 50), "hello"))
+
+simulate_manager.print_stats()
+
+fetch_last_messages(simulate_manager, 5)
+
+print("\n--- Failure Simulation ---")
+simulate_manager.shards[1].messages = []
+simulate_manager.print_stats()
