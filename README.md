@@ -97,4 +97,11 @@ Observations:
 
 ---
 
+Day 10: Final Analysis 
 
+1) We see that first shard fail and get overloaded 
+2) User & channel based sharding strategies are failed under spikes
+3) When we increasing shards we requires redistribution also
+4) Shard failure leads to missing data
+
+---
