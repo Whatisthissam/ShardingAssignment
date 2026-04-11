@@ -1,5 +1,6 @@
 #importing libraries
 import random
+import hashlib
 
 # Day 3-4: Starter Code
 
@@ -114,3 +115,24 @@ for _ in range(5000):
 print("\nChannel-Based Sharding:")
 channel_manager.print_stats()
 
+
+# Day 8: Hash-Based Sharding
+
+class HashShardManager(ShardManager):
+
+    def get_shard(self, key):
+        h = int(hashlib.md5(str(key).encode()).hexdigest(), 16)
+        return self.shards[h % len(self.shards)]
+
+    def send_message(self, message):
+        shard = self.get_shard(message.channel_id)
+        shard.store(message)
+
+
+hash_manager = HashShardManager(3)
+
+for _ in range(7000):
+    hash_manager.send_message(Message(1, random.randint(1, 50), "hello"))
+
+print("\nHash-Based Sharding:")
+hash_manager.print_stats()
