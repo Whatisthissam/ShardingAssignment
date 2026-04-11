@@ -56,3 +56,13 @@ Day 6: User-Based Sharding
 As you can see the messages are routed based on user ID, but one active user overloaded a shard
 
 Conclusion: This strategy will get failed when a user generates heavy traffic.
+
+---
+
+Day 7: Channel-Based Sharding
+
+You can observe that messages are routed based on channel ID, but one viral channel overloaded a shard
+
+Conclusion: By observing we can see that its not suitable for spike situations.
+
+---
