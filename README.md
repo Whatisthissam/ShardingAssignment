@@ -66,3 +66,18 @@ You can observe that messages are routed based on channel ID, but one viral chan
 Conclusion: By observing we can see that its not suitable for spike situations.
 
 ---
+
+Day 8: Hash-Based Sharding
+
+The Hashing Based Sharding distributes messages more evenly.
+
+We Observed:
+
+1) Better load balance
+
+Problem:
+
+1) When shard count changes, data must be redistributed
+
+---
+
