@@ -90,3 +90,27 @@ for _ in range(5000):
 print("\nUser-Based Sharding:")
 user_manager.print_stats()
 
+
+# Day 7: Channel-Based Sharding
+
+class ChannelShardManager(ShardManager):
+
+    def get_shard(self, channel_id):
+        return self.shards[channel_id % len(self.shards)]
+
+    def send_message(self, message):
+        shard = self.get_shard(message.channel_id)
+        shard.store(message)
+
+
+channel_manager = ChannelShardManager(3)
+
+for _ in range(2000):
+    channel_manager.send_message(Message(1, 2, "hello"))
+
+for _ in range(5000):
+    channel_manager.send_message(Message(1, 7, "viral"))
+
+print("\nChannel-Based Sharding:")
+channel_manager.print_stats()
+
