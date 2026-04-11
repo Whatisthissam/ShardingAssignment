@@ -81,3 +81,20 @@ Problem:
 
 ---
 
+Day 9: Stress and Failure Simulation
+
+Tests performed:
+
+1) Normal load
+2) High traffic spike
+3) Server failure
+
+Observations:
+
+1) Spike creates imbalance
+2) Failure causes data loss
+3) Queries become incomplete
+
+---
+
+
